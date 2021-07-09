@@ -2,7 +2,7 @@ class ApiController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :authorize_request, except: [:get_api_key, :list_breeds]
 
-  # POST: /api/user/get_api_key
+  # POST: /api/users/login
   # PARAMS:
   # - username: string
   # - password: string
