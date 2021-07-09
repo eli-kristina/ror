@@ -13,13 +13,22 @@ class ApiController < ApplicationController
     
     if user.present?
       if user.authenticate(password)
+        role = Role.select("roles.name").
+          joins("LEFT JOIN user_roles ON roles.id = user_roles.role_id").
+          where("user_roles.user_id = ?", user.id).first
         payload = {
           user_id: user.id,
           exp: Time.now.to_i + (1 * 3600)
         }
         token = encode(payload);
+        data = {
+          user_id: user.id,
+          user_name: user.username,
+          roles: role.present? ? role.name : 'guest',
+          token: token
+        }
 
-        render json: { "error": "0", "error_code": "", "error_msg": "", "token": token }
+        render json: { "error": "0", "error_code": "", "error_msg": "", "data": data }
       else
         render json: { "error": "1", "error_code": "ER-404", "error_msg": "User not found" }
       end
