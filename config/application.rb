@@ -18,5 +18,10 @@ module EliApiTest
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    
+    config.app_config = YAML.load_file("#{config.root}/config/config.yml")[Rails.env]
   end
 end
+
+# load global app-level config variables from config.yml
+APP_CONFIG = YAML.load_file("#{EliApiTest::Application.config.root}/config/config.yml")[Rails.env]
