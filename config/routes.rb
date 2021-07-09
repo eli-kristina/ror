@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root "Home#index"
-  
+  root "home#index"
+
   # List all API's
   namespace "api" do
     # API that related to users activity

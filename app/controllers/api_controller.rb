@@ -1,6 +1,6 @@
 class ApiController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :authorize_request, except: :get_api_key
+  before_action :authorize_request, except: [:get_api_key, :list_breeds]
 
   # POST: /api/user/get_api_key
   # PARAMS:
@@ -81,15 +81,11 @@ class ApiController < ApplicationController
     page = params[:page] || 1
     offset = (page.to_i - 1) * limit.to_i
 
-    if check_access(session[:current_user_id], access)
-      query = Cat.limit(limit).offset(offset)
-      query = query.where("id = ?", params[:id]) unless params[:id].blank?
-      cats = query.all
+    query = Cat.limit(limit).offset(offset)
+    query = query.where("id = ?", params[:id]) unless params[:id].blank?
+    cats = query.all
 
-      render json: { "error": "0", "error_code": "", "error_msg": "", "data": cats }
-    else
-      render json: { "error": "1", "error_code": "ER-401", "error_msg": "permission denied" }
-    end
+    render json: { "error": "0", "error_code": "", "error_msg": "", "data": cats }
   end
 
   # POST: /api/breeds
