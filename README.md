@@ -20,3 +20,15 @@ $ RAILS_ENV=development rails s -p 3001
 
 # open your browser http://localhost:3001
 ```
+
+
+## Run Unit Test
+
+
+``` bash
+# Run all unit test
+$ bundle exec rspec
+
+# Run specific file to test 
+$ rspec ./spec/{file_path}
+```
