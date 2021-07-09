@@ -1,3 +1,8 @@
+## Required
+
+- Ruby v 3.0.2
+- NodeJs v 14.17.3
+
 ## Setup in Local
 
 
