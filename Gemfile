@@ -20,11 +20,12 @@ gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Json Web Token (JWT) for token based authentication
-gem 'jwt'
+gem 'jwt', '2.2.3'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
 gem "faraday",  "1.5.0"
+gem 'graphql', '1.12.13'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -62,3 +63,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'graphiql-rails', group: :development

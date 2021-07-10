@@ -14,7 +14,7 @@ class SavePetsDataJob < ApplicationJob
             pets.each do |q|
                 Cat.create({
                     name: q["name"],
-                    life_span: q["name"],
+                    life_span: q["life_span"],
                     origin: q["origin"],
                     temperament: q["temperament"],
                     image: q["image"]["url"],

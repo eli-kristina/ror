@@ -32,3 +32,21 @@ $ bundle exec rspec
 # Run specific file to test 
 $ rspec ./spec/{file_path}
 ```
+
+
+
+## GraphQL
+
+
+http://localhost:3001/graphiql
+
+
+``` bash
+# sample usage
+query {
+    fetchPermissions(id: 1) {
+      id
+      name
+    }
+}
+```
