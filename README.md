@@ -1,3 +1,13 @@
+## Requirement
+
+
+- Ruby v 3.0.2
+- Rails v 6.1.4
+- Sqlite3 v 1.4
+- Node v 14.17.3
+
+
+
 ## Setup in Local
 
 
