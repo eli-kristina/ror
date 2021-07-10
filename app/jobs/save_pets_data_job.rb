@@ -7,7 +7,22 @@ class SavePetsDataJob < ApplicationJob
             "limit" => limit
         }
         
+        # call public API
         pets = PetsService.fetch_breeds(params)
-        puts "#{pets}"
+
+        if pets.present?
+            pets.each do |q|
+                Cat.create({
+                    name: q["name"],
+                    life_span: q["name"],
+                    origin: q["origin"],
+                    temperament: q["temperament"],
+                    image: q["image"]["url"],
+                    hairless: q["hairless"],
+                    short_legs: q["short_legs"],
+                    suppressed_tail: q["suppressed_tail"]
+                })
+            end
+        end
     end
 end

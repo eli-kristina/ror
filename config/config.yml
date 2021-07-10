@@ -3,3 +3,12 @@ defaults: &defaults
   service_pets:
     url: "https://api.thecatapi.com"
     api_key: "DEMO-API-KEY"
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
